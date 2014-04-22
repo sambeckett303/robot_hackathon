@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>browse codes</title>
+    <meta charset="utf-8">
+    <!-- Bootstrap -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"></script>
+    <link href="{{ url_for('static', filename="css/bootstrap.min.css") }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename="css/bootstrap-responsive.min.css") }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename="js/bootstrap.js") }}" rel="stylesheet">
+    <style>
+    .indent
+    {
+      margin-left:3em
+    }
+    </style>
+    </head>
+  <body>
+    <div align="center">
+      <h1>Browse Picaxe Robot Code</h1>
+    <table class="table table-hover">
+    <thread>
+        <tr>
+          <th>Code description:</th>
+          <th>Code parameters:</th>
+          <th>Get Code</th>
+        </tr>
+      </thread>
+      <tbody>
+        <tr>
+          <td>Move forward X feet in a straight line</td>
+          <td>Feet to move:<input class="form-control input-sm" id="forward" type="text" placeholder="Enter distance (feet)"></td>
+          <td><button type="button" id="getline">Get Code!</button></td>
+        </tr>
+        <tr>
+          <td>Move in a X by X square</td>
+          <td>Length of side:<input class="form-control input-sm" id="square" type="text" placeholder="Enter distance (feet)"></td>
+          <td><button type="button" id="getsquare">Get Code!</button></td>
+        </tr>
+        <tr>
+          <td>Move in the shape of a hexagon with side length X</td>
+          <td>Length of side:<input class="form-control input-sm" id="hexagon" type="text" placeholder="Enter distance (feet)"></td>
+          <td><button type="button" id="gethexagon">Get Code!</button></td>
+        </tr>
+        <tr>
+          <td>Spin in a circle while singing happy birthday</td>
+          <td>No input parameters for this code</td>
+          <td><button type="button" id="getbirthday">Get Code!</button></td>
+        </tr>
+        <tr>
+          <td>Deliver a christmas message after running into and avoiding objects</td>
+          <td>Number of obstacals:<input class="form-control input-sm" id="num" type="text" placeholder="Enter distance (feet)">
+            Length of obstacal:<input class="form-control input-sm" id="length" type="text" placeholder="Enter distance (feet)">
+          </td>
+          <td><button type="button" id="trick">Get Code!</button></td>
+        </tr>
+    </div>
+   <script>
+   $("#getline").click(function(e) {
+    p = $("#forward").val();
+    window.location.href="/robot/go/"+p;
+   });
+   $("#getsquare").click(function(e) {
+    p = $("#square").val();
+    window.location.href="/robot/square/"+p;
+   });
+   $("#gethexagon").click(function(e) {
+    p = $("#hexagon").val();
+    window.location.href="/robot/hexagon/"+p;
+   });
+   $("#getbirthday").click(function(e){
+    window.location.href="/robot/trick1"
+   });
+   $("#trick").click(function(e){
+    p1 = $("#num").val();
+    p2 = $("#length").val();
+    window.location.href="/robot/trick2/"+p1+"/"+p2;
+   });
+   </script>
+  </body>
+</html>

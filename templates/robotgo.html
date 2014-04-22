@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>robot distance</title>
+    <meta charset="utf-8">
+    <!-- Bootstrap -->
+
+    <link href="{{ url_for('static', filename="css/bootstrap.min.css") }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename="css/bootstrap-responsive.min.css") }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename="js/bootstrap.js") }}" rel="stylesheet">
+    <style>
+    .indent
+    {
+      margin-left:3em
+    }
+    </style>
+    </head>
+  <body>
+    <div align="center">
+      <h1>Code to move forward {{number/1400}} feet:</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-3">
+        <code>main:</code><br>
+        <code>if pinC.6 = 1 then</code><br>
+          <code class="indent">forward A</code><br>
+          <code class="indent">forward B</code><br>
+          <code class="indent">pause {{number}}</code><br>
+          <code class="indent">halt B</code><br>
+          <code class="indent">halt A</code><br>
+        <code>end if</code><br>
+        <code>goto main</code>
+      </div>
+    </div>
+  </body>
+</html>
